@@ -1,6 +1,25 @@
-<html>
-	<body>
+<html ng-app="myApp">
+	<body ng-controller="mainCtrl">
 		Something
+
+		<input ng-model="thisFilter.name">
+		<input ng-model="thisFilter.phone">
+		<select ng-model="thisFilter.dateEmployed">
+			<option value="2012">2012</option>
+			<option value="2013">2013</option>
+			<option value="2014">2014</option>
+			<option value="2015">2015</option>
+		</select>
+
+		<div ng-repeat="stuff in employees | filter: thisFilter">
+			<ul>
+				<li>{{stuff.name}}</li>
+				<li>{{stuff.email}}</li>
+				<li>{{stuff.phone}}</li>
+				<li>{{stuff.dateEmployed}}</li>
+			</ul>
+
+		</div>
 				<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
 		<script src="app.js"></script>
 		<script src="controller.js"></script>
